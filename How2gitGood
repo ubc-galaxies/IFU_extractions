@@ -1,0 +1,49 @@
+# Steps condensed from: https://swcarpentry.github.io/git-novice/index.html
+# Topic NOT covered here: Ignore files, set up ssh, resolving conflicts
+
+
+## Step 1: Configure
+$ git config --list # What needs to be edited?
+
+## Step 2: Creat git controlled folder locally and on github
+cd Git_cntrl
+$ git init # Initialize git control in local repo
+
+## Step 3: Switch to main branch. NOTE: master is no more!
+$ git checkout -b main
+
+## Step 4: setup origin to push to remote github repo
+$ git remote add origin git@github.com:ubc-galaxies/IFU_extractions.git
+
+# Check the connections was made
+git remote -v
+
+## Step 5: add and commit files, all commits are stored locally until pushed to remote repo
+$ git add file.txt
+$ git commit -m "Comment on commit"
+
+# Calls to examine changes
+$ git log # list all commits
+$ git diff # show retractions "--" and additions "++" 
+$ git diff f22b25e file.txt # list difference in file.txt since commit f22b25e (the 1st 7 digits of the commit string listed next to each commit in "git log"
+$ git checkout f22b25e file.txt # restore file.txt to the version stored in commit f22b25e 
+$ git diff HEAD~# file.txt # show differences between file.txt in your working repo and file.txt in the commit # ago ex: HEAD~1 = 'show difference between file.txt now and 1 commit ago'
+
+## Step 6: Push changes to Github
+$ git push -u origin main
+
+## Step whenever: Pull changes from the remote repo on Github
+$ git pull origin main # Downloads changes from remote repo to your local repo
+
+## Collaborating 
+# Add a collaborator/give access to your remote repo
+# In remote repo
+Settings > Add people > Search for their name
+
+# Accept access
+Go to https://github.com/notifications or check for email notification
+
+# Clone the repo
+$ git clone git@github.com:ubc-galaxies/IFU_extractions.git ~/path/to/save/repo/locally
+
+## Rinse, wash, and repeat
