@@ -19,7 +19,7 @@ $ git remote add origin git@github.com:ubc-galaxies/IFU_extractions.git
 git remote -v
 
 ## Step 5: add and commit files, all commits are stored locally until pushed to remote repo
-$ git add file.txt
+$ git add file.txt anotherfile.py # add multiple files or just one
 $ git commit -m "Comment on commit"
 
 # Calls to examine changes
@@ -28,6 +28,9 @@ $ git diff # show retractions "--" and additions "++"
 $ git diff f22b25e file.txt # list difference in file.txt since commit f22b25e (the 1st 7 digits of the commit string listed next to each commit in "git log"
 $ git checkout f22b25e file.txt # restore file.txt to the version stored in commit f22b25e 
 $ git diff HEAD~# file.txt # show differences between file.txt in your working repo and file.txt in the commit # ago ex: HEAD~1 = 'show difference between file.txt now and 1 commit ago'
+
+# Github no longer supports password authentication, can either set up ssh (see above link) or generate a personal token 
+Github Profile -> settings -> developers setting -> personal access tokens -> Tokens (classic) -> fill out expiration date and authentications -> Generate Token -> copy Token and paste when prompted for password when you push (step 6)
 
 ## Step 6: Push changes to Github
 $ git push -u origin main
